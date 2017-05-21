@@ -10,6 +10,9 @@
 .ytp-thumbnail-overlay-image {
 	opacity: 0;
 }
+.html5-video-container {
+	opacity: 0;
+}
 .video-stream.html5-main-video {
 	opacity: 0;
 }

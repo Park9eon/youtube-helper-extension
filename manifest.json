@@ -13,7 +13,7 @@
     "js": [ "content.js" ],
     "matches": [ "https://www.youtube.com/*", "http://www.youtube.com/*"]
   }],
-  "description": "유튜브 영상을 가려줍니다.",
+  "description": "유튜브 영상/썸네일을 가려줍니다. 공공장소에서 유튜브를 자유롭게 사용할 수 있습니다.",
   "icons": {
     "128": "static/icon128.png",
     "16": "static/icon16.png",
