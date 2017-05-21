@@ -1,9 +1,12 @@
 (function () {
+	'use strict';
+	var globalVisibility = false;
 	function update(visibility) {
+		globalVisibility = visibility;
 		if (visibility) {
 			unloadCSS();
 		} else {
-			loadCSS('content')
+			loadCSS('content');
 		}
 	}
 	function loadCSS(file) {
@@ -24,4 +27,4 @@
 	chrome.storage.onChanged.addListener(function(changes, namespace) {
 		update(changes.visibility.newValue);
 	});
-})();
+}).call(window);
