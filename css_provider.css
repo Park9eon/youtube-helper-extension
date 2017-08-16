@@ -1,0 +1,15 @@
+.yt-thumb-simple,
+.ytp-ce-covering-overlay,
+.ytp-thumbnail-overlay-image,
+.ytp-upnext .ytp-cued-thumbnail-overlay-image,
+.html5-video-container,
+.ytp-videowall-still-image,
+.yt-uix-simple-thumb-wrap.yt-uix-simple-thumb-related,
+.yt-thumb-clip {
+	opacity: 0;
+}
+.yt-uix-simple-thumb-wrap.yt-uix-simple-thumb-related:hover,
+.ytp-videowall-still-image:hover,
+.yt-thumb-simple:hover {
+	opacity: 0.1;
+}

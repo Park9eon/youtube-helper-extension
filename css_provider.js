@@ -1,3 +1,6 @@
+/**
+ * load 후 header를 보존하기 때문에 가능!
+ */
 (function () {
 	'use strict';
 	var globalVisibility = false;
@@ -6,19 +9,19 @@
 		if (visibility) {
 			unloadCSS();
 		} else {
-			loadCSS('content');
+			loadCSS();
 		}
 	}
-	function loadCSS(file) {
+	function loadCSS() {
 		var link = document.createElement("link");
-		link.href = chrome.extension.getURL(file + '.css');
-		link.id = "yt-blind-style";
+		link.href = chrome.extension.getURL('css_provider.css');
+		link.id = "yt-cover-css";
 		link.type = "text/css";
 		link.rel = "stylesheet";
-		document.getElementsByTagName("html")[0].appendChild(link);
+		document.getElementsByTagName("head")[0].appendChild(link);
 	}
 	function unloadCSS() {
-		var cssNode = document.getElementById("yt-blind-style");
+		var cssNode = document.getElementById("yt-cover-css");
 		cssNode && cssNode.parentNode.removeChild(cssNode);
 	}
 	chrome.storage.sync.get(function(data) {
@@ -28,3 +31,5 @@
 		update(changes.visibility.newValue);
 	});
 }).call(window);
+
+

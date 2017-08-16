@@ -1,19 +1,24 @@
 {
   "name": "유튜브 커버",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "manifest_version": 2,
   "browser_action": {
     "default_icon": "static/icon19.png",
     "default_popup": "browser_action.html",
-    "default_title": "Youtube blinder"
+    "default_title": "유튜브 커버"
   },
-  "web_accessible_resources": ["content.css"],
+  "web_accessible_resources": ["css_provider.css"],
   "content_scripts": [{
     "all_frames": true,
-    "js": [ "content.js" ],
-    "matches": [ "https://www.youtube.com/*", "http://www.youtube.com/*"]
+    "js": ["css_provider.js"],
+    "run_at": "document_start",
+    "matches": [ "https://www.youtube.com/*"]
+  }, {
+      "all_frames": true,
+      "js": ["content_script.js"],
+      "matches": [ "https://www.youtube.com/*"]
   }],
-  "description": "유튜브 영상/썸네일을 가려줍니다. 공공장소에서 유튜브를 자유롭게 사용할 수 있습니다.",
+  "description": "유튜브 영상/썸네일을 가려줍니다. 회사/공공장소에서 유튜브를 자유롭게 사용할 수 있습니다.",
   "icons": {
     "128": "static/icon128.png",
     "16": "static/icon16.png",
