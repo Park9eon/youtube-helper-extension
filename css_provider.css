@@ -5,11 +5,16 @@
 .html5-video-container,
 .ytp-videowall-still-image,
 .yt-uix-simple-thumb-wrap.yt-uix-simple-thumb-related,
-.yt-thumb-clip {
+.yt-thumb-clip,
+yt-img-shadow.ytd-thumbnail,
+.ytp-cued-thumbnail-overlay,
+#mouseover-overlay.ytd-thumbnail {
 	opacity: 0;
 }
 .yt-uix-simple-thumb-wrap.yt-uix-simple-thumb-related:hover,
 .ytp-videowall-still-image:hover,
-.yt-thumb-simple:hover {
-	opacity: 0.1;
+.yt-thumb-simple:hover,
+#thumbnail:hover > yt-img-shadow.ytd-thumbnail,
+#thumbnail:hover > #mouseover-overlay.ytd-thumbnail {
+	opacity: 0.2;
 }

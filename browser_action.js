@@ -4,7 +4,6 @@
 		checkbox.checked = data.visibility;
 	});
 	checkbox.addEventListener("change", function() {
-		chrome.storage.sync.set({visibility: checkbox.checked}, function() {
-		});
+        chrome.storage.sync.set({visibility: checkbox.checked});
 	});
 })();
