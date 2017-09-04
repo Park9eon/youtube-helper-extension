@@ -8,6 +8,7 @@
 .yt-thumb-clip,
 yt-img-shadow.ytd-thumbnail,
 .ytp-cued-thumbnail-overlay,
+.ytd-watch-card-collage-renderer,
 #mouseover-overlay.ytd-thumbnail {
 	opacity: 0;
 }
