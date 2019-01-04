@@ -1,0 +1,28 @@
+{
+  "name": "youtube-mask",
+  "description": "유튜브 영상/썸네일을 가려줍니다. 회사/공공장소에서 유튜브를 자유롭게 사용할 수 있습니다.",
+  "version": "1.0.0",
+  "author": "Park9eon",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "open:firefox": "web-ext run --source-dir ./dist/ --firefox=nightly",
+    "open:chrome": "node scripts/chrome-launcher.js --chromePath /Applications/Chrome.app/Contents/MacOS/Google\\ Chrome",
+    "open:whale": "node scripts/chrome-launcher.js --chromePath /Applications/Whale.app/Contents/MacOS/Whale",
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.4",
+    "chrome-launcher": "^0.10.5",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^2.1.0",
+    "style-loader": "^0.23.1",
+    "web-ext": "^2.9.2",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.0"
+  }
+}

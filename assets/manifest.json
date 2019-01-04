@@ -1,0 +1,41 @@
+{
+  "name": "유튜브 커버",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_icon": "icon19.png",
+    "default_popup": "browser_action.html",
+    "default_title": "유튜브 커버"
+  },
+  "web_accessible_resources": [
+    "css_provider.css"
+  ],
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "js": [
+        "css_provider.js"
+      ],
+      "run_at": "document_start",
+      "matches": [
+        "https://youtube.com/*",
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*"
+      ]
+    }
+  ],
+  "description": "유튜브 영상/썸네일을 가려줍니다. 회사/공공장소에서 유튜브를 자유롭게 사용할 수 있습니다.",
+  "icons": {
+    "128": "icon128.png",
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png"
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "https://youtube.com/",
+    "https://www.youtube.com/",
+    "https://m.youtube.com/"
+  ]
+}

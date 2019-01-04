@@ -1,21 +1,31 @@
+.ytd-player .html5-main-video,
+.player-api .html5-main-video,
 .yt-thumb-simple,
 .ytp-ce-covering-overlay,
 .ytp-thumbnail-overlay-image,
 .ytp-upnext .ytp-cued-thumbnail-overlay-image,
-.html5-video-container,
 .ytp-videowall-still-image,
 .yt-uix-simple-thumb-wrap.yt-uix-simple-thumb-related,
 .yt-thumb-clip,
 yt-img-shadow.ytd-thumbnail,
+.ytd-playlist-thumbnail .yt-img-shadow,
 .ytp-cued-thumbnail-overlay,
 .ytd-watch-card-collage-renderer,
+.cover.video-thumbnail-img,
 #mouseover-overlay.ytd-thumbnail {
 	opacity: 0;
 }
+.ytd-player .html5-main-video:hover,
 .yt-uix-simple-thumb-wrap.yt-uix-simple-thumb-related:hover,
 .ytp-videowall-still-image:hover,
 .yt-thumb-simple:hover,
+.ytd-playlist-thumbnail:hover .yt-img-shadow,
+.cover.video-thumbnail-img:hover,
 #thumbnail:hover > yt-img-shadow.ytd-thumbnail,
 #thumbnail:hover > #mouseover-overlay.ytd-thumbnail {
 	opacity: 0.2;
+}
+
+.player-api .html5-main-video:hover {
+	opacity: 1;
 }
