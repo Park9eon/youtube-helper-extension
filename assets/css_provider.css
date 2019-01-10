@@ -13,8 +13,9 @@ yt-img-shadow.ytd-thumbnail,
 .ytd-watch-card-collage-renderer,
 .cover.video-thumbnail-img,
 #mouseover-overlay.ytd-thumbnail {
-	opacity: 0;
+    opacity: 0;
 }
+
 .ytd-player .html5-main-video:hover,
 .yt-uix-simple-thumb-wrap.yt-uix-simple-thumb-related:hover,
 .ytp-videowall-still-image:hover,
@@ -23,9 +24,9 @@ yt-img-shadow.ytd-thumbnail,
 .cover.video-thumbnail-img:hover,
 #thumbnail:hover > yt-img-shadow.ytd-thumbnail,
 #thumbnail:hover > #mouseover-overlay.ytd-thumbnail {
-	opacity: 0.2;
+    opacity: 0.2;
 }
 
 .player-api .html5-main-video:hover {
-	opacity: 1;
+    opacity: 1;
 }

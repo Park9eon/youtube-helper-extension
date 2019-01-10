@@ -8,7 +8,8 @@
     "default_title": "유튜브 커버"
   },
   "web_accessible_resources": [
-    "css_provider.css"
+    "css_provider.css",
+    "original.gif"
   ],
   "content_scripts": [
     {
@@ -17,6 +18,17 @@
         "css_provider.js"
       ],
       "run_at": "document_start",
+      "matches": [
+        "https://youtube.com/*",
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*"
+      ]
+    },
+    {
+      "all_frames": true,
+      "css": [
+        "nyan.css"
+      ],
       "matches": [
         "https://youtube.com/*",
         "https://www.youtube.com/*",
