@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "manifest_version": 2,
   "browser_action": {
+    "browser_style": true,
     "default_icon": "icon19.png",
     "default_popup": "browser_action.html",
     "default_title": "유튜브 커버"
@@ -11,6 +12,10 @@
     "css_provider.css",
     "original.gif"
   ],
+  "background": {
+    "scripts": [ "background.js" ]
+  },
+  "content_security_policy": "script-src 'self';",
   "content_scripts": [
     {
       "all_frames": true,

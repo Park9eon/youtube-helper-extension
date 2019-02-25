@@ -12,6 +12,7 @@ module.exports = (env, argv) => ({
     entry: {
         browser_action: './src/browser_action',
         css_provider: './src/css_provider',
+        script: './src/script',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

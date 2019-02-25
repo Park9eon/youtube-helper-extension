@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "open:firefox": "web-ext run --source-dir ./dist/ --firefox=nightly",
+    "open:firefox": "web-ext run --source-dir ./dist/ --firefox=nightly --keep-profile-changes --verbose",
     "open:chrome": "node scripts/chrome-launcher.js --chromePath /Applications/Chrome.app/Contents/MacOS/Google\\ Chrome",
     "open:whale": "node scripts/chrome-launcher.js --chromePath /Applications/Whale.app/Contents/MacOS/Whale",
     "watch": "webpack --watch --mode=development",
