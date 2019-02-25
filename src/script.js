@@ -21,9 +21,10 @@
             return ((v2Rect.width * v2Rect.height) - (v1Rect.width * v1Rect.height));
         });
 
-    console.log(videos);
-    if (videos.length === 0)
+    if (videos.length === 0) {
+        alert("지원하지 않는 브라우져 입니다.");
         return;
+    }
 
     const video = videos[0];
 

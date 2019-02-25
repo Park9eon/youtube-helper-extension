@@ -1,7 +1,7 @@
 {
   "name": "youtube-mask",
   "description": "유튜브 영상/썸네일을 가려줍니다. 회사/공공장소에서 유튜브를 자유롭게 사용할 수 있습니다.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Park9eon",
   "license": "MIT",
   "private": true,

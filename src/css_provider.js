@@ -3,34 +3,52 @@
  */
 'use strict';
 
-var globalVisibility = false;
+const maskCSSID = "yt-cover-css";
+const maskCSS = "css_provider.css";
+const catCSSID = "yt-nyan-css";
+const catCSS = "nyan.css";
 
-function update(visibility) {
-    globalVisibility = visibility;
+function updateVisible(visibility = false) {
     if (visibility) {
-        unloadCSS();
+        unloadCSS(maskCSSID);
     } else {
-        loadCSS();
+        loadCSS(maskCSSID, maskCSS);
     }
 }
 
-function loadCSS() {
-    var link = document.createElement("link");
-    link.href = chrome.extension.getURL('css_provider.css');
-    link.id = "yt-cover-css";
+function updateCat(cat = true) {
+    console.log(cat);
+    if (cat) {
+        loadCSS(catCSSID, catCSS);
+    } else {
+        unloadCSS(catCSSID);
+    }
+}
+
+function loadCSS(id, url) {
+    const link = document.createElement("link");
+    link.href = chrome.extension.getURL(url);
+    link.id = id;
     link.type = "text/css";
     link.rel = "stylesheet";
     document.getElementsByTagName("head")[0].appendChild(link);
 }
 
-function unloadCSS() {
-    var cssNode = document.getElementById("yt-cover-css");
+function unloadCSS(id) {
+    const cssNode = document.getElementById(id);
     cssNode && cssNode.parentNode.removeChild(cssNode);
 }
 
-chrome.storage.local.get(['visibility'], function (data) {
-    update(data.visibility);
+chrome.storage.local.get(['visibility', 'cat'], ({visibility, cat}) => {
+    updateVisible(visibility);
+    updateCat(cat);
 });
-chrome.storage.onChanged.addListener(function (changes, namespace) {
-    update(changes.visibility.newValue);
+
+chrome.storage.onChanged.addListener(({visibility, cat}) => {
+    if (visibility !== null && visibility !== undefined) {
+        updateVisible(visibility.newValue)
+    }
+    if (cat !== null && cat !== undefined) {
+        updateCat(cat.newValue);
+    }
 });
