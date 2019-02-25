@@ -17,7 +17,6 @@ function updateVisible(visibility = false) {
 }
 
 function updateCat(cat = true) {
-    console.log(cat);
     if (cat) {
         loadCSS(catCSSID, catCSS);
     } else {
