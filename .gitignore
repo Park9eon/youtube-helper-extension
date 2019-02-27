@@ -106,3 +106,5 @@ typings/
 /dist/
 
 *.zip
+
+web-ext-artifacts

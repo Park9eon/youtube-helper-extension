@@ -11,10 +11,11 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+// https://github.com/GoogleChromeLabs/picture-in-picture-chrome-extension
 (async () => {
-    const videos = Array.from(document.querySelectorAll('video'))
-        .filter(video => video.readyState != 0)
-        .filter(video => video.disablePictureInPicture == false)
+    const videos = Array.from(document.querySelectorAll("video"))
+        .filter(video => video.readyState !== 0)
+        .filter(video => video.disablePictureInPicture === false)
         .sort((v1, v2) => {
             const v1Rect = v1.getClientRects()[0];
             const v2Rect = v1.getClientRects()[0];
@@ -28,14 +29,14 @@
 
     const video = videos[0];
 
-    if (video.hasAttribute('__pip__')) {
+    if (video.hasAttribute("__pip__")) {
         await document.exitPictureInPicture();
     } else {
         await video.requestPictureInPicture();
-        video.setAttribute('__pip__', true);
-        video.addEventListener('leavepictureinpicture', event => {
-            video.removeAttribute('__pip__');
+        video.setAttribute("__pip__", true);
+        video.addEventListener("leavepictureinpicture", event => {
+            video.removeAttribute("__pip__");
         }, {once: true});
-        chrome.runtime.sendMessage({message: 'enter'});
+        chrome.runtime.sendMessage({message: "enter"});
     }
 })();

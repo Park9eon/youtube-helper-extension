@@ -1,53 +1,36 @@
-/**
- * load 후 header를 보존하기 때문에 가능!
- */
-'use strict';
+(() => {
+    const videoCSSID = "yt-video-css";
+    const videoCSS = "video.css";
+    const progressCSSID = "yt-progress-css";
+    const progressCSS = "progress.css";
 
-const maskCSSID = "yt-cover-css";
-const maskCSS = "css_provider.css";
-const catCSSID = "yt-nyan-css";
-const catCSS = "nyan.css";
-
-function updateVisible(visibility = false) {
-    if (visibility) {
-        unloadCSS(maskCSSID);
-    } else {
-        loadCSS(maskCSSID, maskCSS);
-    }
-}
-
-function updateCat(cat = true) {
-    if (cat) {
-        loadCSS(catCSSID, catCSS);
-    } else {
-        unloadCSS(catCSSID);
-    }
-}
-
-function loadCSS(id, url) {
-    const link = document.createElement("link");
-    link.href = chrome.extension.getURL(url);
-    link.id = id;
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    document.getElementsByTagName("head")[0].appendChild(link);
-}
-
-function unloadCSS(id) {
-    const cssNode = document.getElementById(id);
-    cssNode && cssNode.parentNode.removeChild(cssNode);
-}
-
-chrome.storage.local.get(['visibility', 'cat'], ({visibility, cat}) => {
-    updateVisible(visibility);
-    updateCat(cat);
-});
-
-chrome.storage.onChanged.addListener(({visibility, cat}) => {
-    if (visibility !== null && visibility !== undefined) {
-        updateVisible(visibility.newValue)
-    }
-    if (cat !== null && cat !== undefined) {
-        updateCat(cat.newValue);
-    }
-});
+    const loadCSS = (id, filename) => {
+        const link = document.createElement("link");
+        link.href = chrome.runtime.getURL(filename);
+        link.id = id;
+        link.type = "text/css";
+        link.rel = "stylesheet";
+        document.getElementsByTagName("head")[0].appendChild(link);
+    };
+    const unloadCSS = (id) => {
+        const cssNode = document.getElementById(id);
+        cssNode && cssNode.parentNode.removeChild(cssNode);
+    };
+    const load = (id, css, value) => {
+        if (value !== null && value !== undefined) {
+            if (value) {
+                loadCSS(id, css);
+            } else {
+                unloadCSS(id);
+            }
+        }
+    };
+    chrome.storage.local.get(['video', 'progress'], ({video, progress} = {}) => {
+        load(videoCSSID, videoCSS, video);
+        load(progressCSSID, progressCSS, progress);
+    });
+    chrome.storage.onChanged.addListener(({video, progress} = {}) => {
+        load(videoCSSID, videoCSS, video && video.newValue);
+        load(progressCSSID, progressCSS, progress && progress.newValue);
+    });
+})();

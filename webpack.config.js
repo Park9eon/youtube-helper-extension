@@ -3,23 +3,24 @@
 /**
  * Created by park9eon on 2019-01-03
  */
-
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+const distPath = path.resolve(__dirname, 'dist');
 module.exports = (env, argv) => ({
     mode: 'development',
     entry: {
         browser_action: './src/browser_action',
         css_provider: './src/css_provider',
-        script: './src/script',
+        pip: './src/pip',
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: distPath,
         filename: '[name].js',
     },
     devtool: argv.mode === 'development' ? 'source-map' : '',
-    plugins: [new CopyWebpackPlugin([{from: './assets'}])],
+    plugins: [new CopyWebpackPlugin([{from: './assets'}]), new CleanWebpackPlugin([distPath])],
     optimization: {
         minimize: false
     },
