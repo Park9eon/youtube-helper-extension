@@ -12,7 +12,7 @@
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.1.0",
     "style-loader": "^0.23.1",
-    "web-ext": "^2.9.2",
+    "web-ext": "^3.1.1",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.0"
   },
